@@ -1,7 +1,7 @@
-$("inputArea").keydown(function(e){
+/*$("inputArea").keydown(function(e){
   translation[e.keycode]
 $("textArea").append(translation[e.keycode])
-});
+});*/
 
 $("input[type='radio']").click(function(){
   $("input:checked").prop('checked', false);
@@ -42,16 +42,16 @@ var translation = {
 $("#inputArea").keydown(function(e) {
 
   if ($("input:checked").val() == "echo") {
-    $("#textArea").append(translation[e.keycode]);
+    $("#textArea").append(translation[e.keyCode]);
   }
 
   if($("input:checked").val() == "caesar cipher") {
-    $("#textArea").append(translation[e.keycode - 1]);
+    $("#textArea").append(translation[e.keyCode - 1]);
   }
 });
 
 $("#translationInputText").keydown(function(e) {
-  if (e.keycode == 13) {
+  if (e.keyCode == 13) {
 
   }
 });
