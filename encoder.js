@@ -3,11 +3,13 @@
 $("textArea").append(translation[e.keycode])
 });*/
 
+//code for button down
 $("input[type='radio']").click(function(){
   $("input:checked").prop('checked', false);
   $(this).prop('checked', true);
 });
 
+//how the code knows what leter im typing
 var translation = {
 64:"z",
 65:"a",
@@ -39,17 +41,30 @@ var translation = {
 91:"a"
 };
 
+
 $("#inputArea").keydown(function(e) {
 
+//code for echoing the letters
   if ($("input:checked").val() == "echo") {
     $("#textArea").append(translation[e.keyCode]);
   }
 
+//shift cipher:moves the letter one up - ex:a=b
   if($("input:checked").val() == "caesar cipher") {
     $("#textArea").append(translation[e.keyCode - 1]);
   }
+
+//changes it from letters to nordic runes
+  if ($("input:checked").val() == "runes") {
+    var htmlString = "<img src = 'images/runes/" + translation[e.keyCode] + ".gif'>"
+
+    $("#textArea").append(htmlString);
+  }
+
+
 });
 
+//the code for the ceasar cipher/shift cipher decoder
 $("#translationInputText").keydown(function(e) {
   if (e.keyCode == 13) {
     var message = $("#translationInputText").val();
